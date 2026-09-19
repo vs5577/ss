@@ -663,6 +663,9 @@
 </style>
 </head>
 <body>
+<audio id="bgMusic" loop preload="auto">
+  <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
 
 <div id="fall-layer" aria-hidden="true"></div>
 
@@ -844,7 +847,7 @@
     <h2 class="section-title">To many more years</h2>
     <p class="section-lead" style="margin-bottom:0;">of your birthdays, your laughter, and this us. I love you more than these falling hearts can ever show.</p>
     <p class="sign">Happy Birthday, my Thangamaeyyy 🩷</p>
-    <div class="footer-hearts">❤️ 🧡 💛</div>
+    <div class="footer-hearts">❤️ 🥰 🫂 💞 💝</div>
   </section>
 
 </main>
@@ -945,13 +948,20 @@
       bow.classList.add('vanish');
     }, 420);
 
-    setTimeout(function(){
-      heart.classList.add('struck');
-      burstShards();
-      fwVideo.classList.add('on');
-      fwVideo.currentTime = 0;
-      fwVideo.play().catch(function(){});
-    }, 780);
+   setTimeout(function(){
+  heart.classList.add('struck');
+  burstShards();
+
+  // 🎵 Start birthday song after heart is blown
+  var bgMusic = document.getElementById('bgMusic');
+  bgMusic.currentTime = 0;
+  bgMusic.volume = 0.65;
+  bgMusic.play().catch(function(){});
+
+  fwVideo.classList.add('on');
+  fwVideo.currentTime = 0;
+  fwVideo.play().catch(function(){});
+}, 780);
 
     setTimeout(function(){
       revealText.classList.add('show');
